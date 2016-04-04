@@ -13,6 +13,20 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
-        return new Response('Hello World !');
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('AppBundle:Article');
+
+        $list = $repository->findAll();
+
+        $content = $this
+            ->get('templating')
+            ->render('AppBundle:Default:index.html.twig',
+                array(
+                    'Articles' => $list
+                ));
+
+        return new Response($content);
     }
 }

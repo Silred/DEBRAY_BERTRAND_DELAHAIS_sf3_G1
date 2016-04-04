@@ -1,32 +1,25 @@
-{# src/AppBundle/Resources/views/Default/index.html.twig #}
+{# src/AppBundle/Resources/views/Article/show.html.twig #}
 
 {% extends "AppBundle::layout.html.twig" %}
 
-{% block page_title %}
-    Accueil {{ parent() }}
+{% block title %}
+    {{ article.title }}
 {% endblock %}
-
 
 {% block blog_body %}
 
-{% for article in Articles %}
-
-    <a href="{{ path('app_article_article_show', {'id': article.id}) }}">
-
-        <h2>{{ article.title }} </h2>
-
-    </a>
+    <h2>{{ article.title }}</h2>
 
     <h3>{{ article.author }}</h3>
 
     <h4>{{ article.date|date('Y-m-d')  }}</h4>
+
+    <p>{{ article.content }}</p>
 
     {%  for tag  in article.tags %}
 
         <a href="{{ path('app_article_article_list', {'tag': tag.name}) }}"><h5>{{ tag.name }}</h5></a>
 
     {% endfor %}
-
-{% endfor %}
 
 {% endblock %}

@@ -1,9 +1,9 @@
-{# src/AppBundle/Resources/views/Default/index.html.twig #}
+{# src/AppBundle/Resources/views/Article/list.html.twig #}
 
 {% extends "AppBundle::layout.html.twig" %}
 
 {% block page_title %}
-    Accueil {{ parent() }}
+    Liste des articles {{ parent() }}
 {% endblock %}
 
 
@@ -21,11 +21,15 @@
 
     <h4>{{ article.date|date('Y-m-d')  }}</h4>
 
+
+
     {%  for tag  in article.tags %}
 
         <a href="{{ path('app_article_article_list', {'tag': tag.name}) }}"><h5>{{ tag.name }}</h5></a>
 
     {% endfor %}
+
+
 
 {% endfor %}
 

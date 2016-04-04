@@ -1,13 +1,43 @@
+{# app/Resources/views/base.html.twig #}
+
 <!DOCTYPE html>
 <html>
+
     <head>
-        <meta charset="UTF-8" />
+        <meta charset="UTF-8"/>
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% block stylsheets %}
+            <link rel="stylesheet" href="{{ asset('bundles/app/css/home/home.css') }}"/>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
     </head>
+
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ path('app_home_index')}}">Blog</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{{ path('app_article_article_list', {'tag': 'all'}) }}">Liste</a></li>
+                    <li><a href="{{ path('app_article_article_add') }}">Créer</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+        {% block body %}
+            <h1>Main Title</h1>
+        {% endblock %}
     </body>
+
 </html>
