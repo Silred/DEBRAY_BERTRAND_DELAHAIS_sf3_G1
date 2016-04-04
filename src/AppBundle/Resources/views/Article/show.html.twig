@@ -8,18 +8,20 @@
 
 {% block blog_body %}
 
-    <h2>{{ article.title }}</h2>
+    <div class="row">
 
-    <h3>{{ article.author }}</h3>
+        <div class="col-md-12">
 
-    <h4>{{ article.date|date('Y-m-d')  }}</h4>
+        <h2>{{ article.title }}</h2>
 
-    <p>{{ article.content }}</p>
+        <h4>Auteur : {{ article.author }} {%  for tag  in article.tags %} <a href="{{ path('app_article_article_list', {'tag': tag.name}) }}"><h5>{{ tag.name }}</h5></a> {% endfor %} Date : {{ article.date|date('Y-m-d')  }} </h4>
 
-    {%  for tag  in article.tags %}
+        <p>{{ article.content }}</p>
 
-        <a href="{{ path('app_article_article_list', {'tag': tag.name}) }}"><h5>{{ tag.name }}</h5></a>
 
-    {% endfor %}
+
+        </div>
+
+    </div>
 
 {% endblock %}

@@ -11,15 +11,21 @@
 
 {% for article in Articles %}
 
-    <a href="{{ path('app_article_article_show', {'id': article.id}) }}">
+    <div class="row">
 
-        <h2>{{ article.title }} </h2>
+        <div class="col-md-12" style="border: solid 2px; border-radius: 31px 31px 31px 31px;
+-moz-border-radius: 31px 31px 31px 31px;
+-webkit-border-radius: 31px 31px 31px 31px; margin-bottom: 50px">
 
-    </a>
+        <a href="{{ path('app_article_article_show', {'id': article.id}) }}">
 
-    <h3>{{ article.author }}</h3>
+            <h2>{{ article.title }} </h2>
 
-    <h4>{{ article.date|date('Y-m-d')  }}</h4>
+        </a>
+
+        <h3>{{ article.author }}</h3>
+
+        <h4>{{ article.date|date('Y-m-d')  }}</h4>
 
 
 
@@ -29,7 +35,9 @@
 
     {% endfor %}
 
+        </div>
 
+    </div>
 
 {% endfor %}
 

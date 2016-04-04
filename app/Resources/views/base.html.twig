@@ -7,7 +7,7 @@
         <meta charset="UTF-8"/>
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylsheets %}
-            <link rel="stylesheet" href="{{ asset('bundles/app/css/home/home.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('bundles/framework/css/home.css') }}"/>
             <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
@@ -28,16 +28,17 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="{{ path('app_article_article_list', {'tag': 'all'}) }}">Liste</a></li>
+                    <li><a href="{{ path('app_article_article_list', {'tag': 'all'}) }}">Liste</a></li>
                     <li><a href="{{ path('app_article_article_add') }}">Créer</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
     </nav>
-
+    <div class="container">
         {% block body %}
-            <h1>Main Title</h1>
+
         {% endblock %}
+    </div>
     </body>
 
 </html>
